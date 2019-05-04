@@ -16,6 +16,8 @@ RUN curl -s -o /tmp/anaconda.tgz https://codeload.github.com/DamnWidget/anaconda
 # - python-in-docker is used by Anaconda plugin in Sublime Text 3
 COPY python-in-docker.sh /bin/python-in-docker
 RUN chmod 755 /bin/python-in-docker
+COPY unittest-in-docker.sh /bin/unittest-in-docker
+RUN chmod 755 /bin/unittest-in-docker
 COPY entry.sh /bin/docker-entry
 RUN chmod 755 /bin/docker-entry
 
