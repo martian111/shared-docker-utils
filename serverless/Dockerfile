@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:8-alpine
 
 # Minimal environment
 # Ref:  https://serverless.com/framework/docs/getting-started/
