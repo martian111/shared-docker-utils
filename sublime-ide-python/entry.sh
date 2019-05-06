@@ -12,7 +12,11 @@ init_project_dir() {
         python -m venv ${_venv} || exit 1
     fi
 
-    local _pip=${_venv}/bin/pip
+    # Running pip 19.1 in Python 3.7 fails with:
+    #     ModuleNotFoundError: No module named 'pip'
+    # Using pip module instead per https://stackoverflow.com/a/4910393/1034436
+    # (which should work since Python 3.4)
+    local _pip="${_venv}/bin/python -m pip"
     ${_pip} install --upgrade pip  || exit 2
     if [[ -f ${_project_base}/requirements-dev.txt ]]; then
         ${_pip} install -r ${_project_base}/requirements-dev.txt || exit 3
